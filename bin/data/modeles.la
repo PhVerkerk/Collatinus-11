@@ -1,0 +1,856 @@
+! modeles.la
+!
+! clés : <valeurs>
+! modele:<nom du modèle>
+!    nom du modèle, comme donné dans lemmes.la.
+!    ligne suivie des autres clés qui décrivent 
+!    le modèle.
+! R:<n1>:<n2>,<ch>
+!    Description d'un radical.
+!    n1 : numéro du radical
+!    n2 : nombre de caractères à ôter de la forme canonique 
+!    ch : chaîne à ajouter à la chaîne obtenue pour avoir le radical
+!
+! des:<intervalle>:<num>:<listeDes>
+! <intervale> = liste de n° de morphologies séparées par des virgules,
+!               ou intervale de numéros <premier>-<dernier>. Les deux
+!               définitions sont compatibles.
+!
+! On peut ne donner qu'une fois une désinence qui se répète en fin de liste.
+!
+!
+!
+!
+!
+$em=ĕm;ēs;ĕt;ēmŭs;ētĭs;ēnt
+$im=ĭm;īs;ĭt;īmŭs;ītĭs;īnt
+$lupus=ŭs;ĕ;ŭm;ī;ō;ō;ī;ī;ōs;ōrŭm;īs;īs
+$templum=ŭm;ŭm;ŭm;ī;ō;ō;ă;ă;ă;ōrŭm;īs;īs
+$se=sē,sēsē;sŭī;sĭbī;sē,sēsē
+$tu=ū;ē;ŭī;ĭbĭ;ē
+$uita=ă;ă;ăm;āe;āe;ā;āe;āe;ās;ārum;īs;īs
+
+modele:uita
+R:1:1,0
+des:1-12:1:$uita
+
+modele:epulae
+pere:uita
+R:1:2,0
+abs:1-6
+
+modele:roma
+pere:uita
+des:413:1:āe
+
+modele:aeneas
+pere:uita
+R:1:2,0
+des+:1-3:1:ās;ā;ān
+
+modele:cometes
+pere:uita
+R:1:2,0
+des+:1-4,6:1:ĕs;ĕ;ĕn;ī;ē
+
+modele:cybele
+pere:uita
+des+:1-4,6:1:ē;ē;ēn;ēs;ē
+
+modele:dea
+pere:uita
+des+:11,12:1:ăbŭs
+
+modele:lupus
+R:1:2,0
+des:1-12:1:$lupus
+
+modele:liberi
+pere:lupus
+R:1:1,0
+abs:1-6
+
+modele:deus
+pere:lupus
+R:2:3,0
+des:2:1:ŭs
+des+:7,8,11,12:2:ĭī,ī;ĭī,ī;īis,īs;īis,īs
+
+modele:filius
+pere:lupus
+R:2:3,0
+des:2:2:ī
+
+modele:perseus
+R:1:3,0
+des:1-6:1:ēŭs,ēūs;ēŭs,ēū;ĕă,ĕŭm;ĕŏs,ĕī;ĕī,ĕō;ĕō
+
+modele:delos
+pere:lupus
+des+:1,3:1:ŏs;ŏn
+
+modele:templum
+pere:lupus
+R:1:2,0
+des:1-3:1:ŭm;ŭm;ŭm
+des:7-9:1:ă;ă;ă
+
+modele:castra
+pere:templum
+R:1:1,0
+abs:1-6
+
+modele:virus
+pere:lupus
+des:2,3:1:us;us
+abs:7-12
+
+modele:ilion
+pere:templum
+des+:1-3:1:ŏn;ŏn;ŏn
+
+modele:puer
+pere:lupus
+R:1:0,0
+R:2:K
+des:1,2:2:-;-
+
+modele:ager
+pere:lupus
+R:1:2,r
+R:2:K
+des:1,2:2:-;-
+
+modele:miles
+R:2:K
+des:1,2:2:-;-
+des:3-12:1:ĕm;ĭs;ī;ĕ;ēs;ēs;ēs;ŭm;ĭbŭs
+
+modele:honor
+pere:miles
+R:3:2,ō
+des+:1:3:s
+
+modele:aer
+pere:miles
+des+:3,4,7,8,9:1:ă;ŏs;ĕs;ĕs;ăs
+
+modele:thetys
+pere:miles
+des+:3,4,9:1:n,ă;ŏs;ăs
+
+modele:opes
+pere:miles
+abs:1-6
+
+modele:dos
+pere:miles
+des+:10:1:ĭŭm
+
+modele:corpus
+pere:miles
+des:3:2:-
+des:7-9:1:ă;ă;ă
+
+modele:ciuis
+pere:miles
+des:10:1:ĭŭm
+
+modele:thales
+pere:ciuis
+des+:2-4:1:ē;ēn;ī
+
+modele:poesis
+pere:ciuis
+des+:8,9:1:ĭn,ĭm;ĕŏs
+
+modele:manes
+pere:ciuis
+abs:7-12
+
+modele:turris
+pere:ciuis
+des:3:1:ĭm
+
+modele:uis
+pere:ciuis
+R:3:2,0
+abs:4
+des:3,5,6:3:ĭm;ī
+
+modele:nauis
+pere:ciuis
+des+:6:1:ī
+des+:3:1:ĭm
+
+modele:apis
+pere:ciuis
+des+:10:1:ŭm
+
+modele:mare
+pere:ciuis
+des:3:1:-
+des:6,7-9:1:ī;ĭă;ĭa;ĭa
+
+modele:animal
+pere:mare
+R:2:K
+des:1-3:2:-;-
+des+:6:1:ĕ
+
+modele:mille
+pere:mare
+R:4:2,0
+des:7-12:4:ĭă;ĭa;ĭa;ĭŭm;ĭbŭs
+
+modele:manus
+R:1:2,0
+des:1-12:1:ŭs;ŭs;ŭm;ūs;ŭī;ū;ūs;ūs;ūs;ŭŭm;ĭbŭs;ĭbŭs
+
+modele:acus
+pere:manus
+des:11,12:1:ŭbŭs;ŭbŭs
+
+modele:lacus
+pere:manus
+des+:11,12:1:ŭbŭs;ŭbŭs
+
+modele:domus
+pere:manus
+des:6:1:ō
+des:413:1:ī
+des+:9,10:1:ōs;ōrŭm
+
+modele:cornu
+pere:manus
+R:1:1,0
+des:1-3,7-9:1:ŭ;ŭ;ŭ;ŭă;ŭă;ŭă
+
+modele:res
+R:1:2,0
+des:1-12:1:ēs;ēs;ĕm;ĕī;ĕī;ē;ēs;ēs;ēs;ērŭm;ēbŭs;ēbŭs
+
+modele:doctus
+R:0:2,0
+R:1:2,ĭ
+R:2:2,īssĭm
+des:13-48:0:$lupus;$uita;$templum
+des:49-84:1:ŏr;ŏr;ōrĕm;ōrĭs;ōrī;ōrĕ;ōrēs;ōrēs;ōrēs;ōrŭm;ōrĭbŭs;ōrĭbŭs;ŏr;ŏr;ōrĕm;ōrĭs;ōrī;ōrĕ;ōrēs;ōrēs;ōrēs;ōrŭm;ōrĭbŭs;ōrĭbŭs;ŭs;ŭs;ŭs;ōrĭs;ōrī;ōrĕ;ōră;ōră;ōră;ōrŭm;ōrĭbŭs
+des:85-120:2:$lupus;$uita;$templum
+
+modele:deni
+pere:doctus
+R:0:1,0
+abs:13-18,25-30,37-43,49-119
+
+modele:nonus
+pere:doctus
+abs:49-120
+
+modele:unus
+pere:doctus
+des:16,28,40:0:ĭŭs;ĭŭs;ĭŭs
+des:17,29,41:0:ī;ī;ī
+abs:49-119
+
+modele:alter
+pere:unus
+R:0:0,0
+
+modele:unusquisque
+pere:unus
+
+modele:aureus
+pere:doctus
+des:14:0:ŭs
+abs:49-120
+
+modele:meus
+pere:aureus
+suf:17,18,25,29,30,41,42:ptĕ
+
+modele:dubius
+pere:doctus
+abs:49-120
+
+modele:artios
+pere:doctus
+des+:13,15-48:0:ŏs;ŏn;
+des+:25-28,30:0:ē;ē;ēn;ēs;ē
+des+:37-40:0:ŏn;ŏn;ŏn
+
+modele:duo
+pere:doctus
+R:0:1,0
+!R:1:K
+des:19,43,45:0:ŏ
+des:23,24,35,36,47,48:0:ōbŭs
+abs:22,32,42,13-18,25-30,37-42
+
+modele:miser
+pere:doctus
+R:0:0,0
+R:1:0,0
+R:2:0,rĭm
+des:13,14:1:-;-
+
+modele:pulcher
+pere:doctus
+R:0:2,r
+R:1:2,rĭ
+R:2:0,rĭm
+R:4:K
+des:1,2:4:-;-
+
+modele:fortis
+pere:doctus
+R:0:2,0
+R:4:K
+des:13,14,25,26:4:-;-;-;-
+des:15-24:1:ĕm;ĭs;ī;ī;ēs;ēs;ēs;ĭŭm;ĭbŭs
+des:27-36:1:ĕm;ĭs;ī;ī;ēs;ēs;ēs;ĭŭm;ĭbŭs
+des:37-48:1:ĕ;ĕ;ĕ;ĭs;ī;ī;ĭă;ĭă;ĭă;ĭŭm;ĭbŭs
+des:49-84:1:ĭŏr;ĭŏr;ĭōrĕm;ĭōrĭs;ĭōrī;ĭōrĕ;ĭōrēs;ĭōrēs;ĭōrēs;ĭōrŭm;ĭōrĭbŭs;ĭōrĭbŭs;ĭŏr;ĭŏr;ĭōrĕm;ĭōrĭs;ĭōrī;ĭōrĕ;ĭōrēs;ĭōrēs;ĭōrēs;ĭōrŭm;ĭōrĭbŭs;ĭōrĭbŭs;ĭŭs;ĭŭs;ĭŭs;ĭōrĭs;ĭōrī;ĭōrĕ;ĭōră;ĭōră;ĭōră;ĭōrŭm;ĭōrĭbŭs
+
+modele:infans
+pere:fortis
+des+:22,34,46:1:ŭm
+
+modele:acer
+pere:fortis
+R:0:2,r
+R:1:2,r
+R:2:0,rĭm
+
+modele:diues
+pere:fortis
+des:18,30,42:1:ĕ;ĕ;ĕ
+des:37-39:4:-
+des:22,34,46:0:ŭm;ŭm;ŭm
+des:85-120:1:īssĭmŭs;īssĭmĕ;īssĭmŭm;īssĭmī;īssĭmō;īssĭmō;īssĭmī;īssĭmī;īssĭmōs;īssĭmōrŭm;īssĭmīs;īssĭmīs;īssĭmă;īssĭmă;īssĭmăm;īssĭmāe;īssĭmāe;īssĭmā;īssĭmāe;īssĭmāe;īssĭmās;īssĭmārum;īssĭmīs;īssĭmīs;īssĭmŭm;īssĭmŭm;īssĭmŭm;īssĭmī;īssĭmō;īssĭmō;īssĭmă;īssĭmă;īssĭmă;īssĭmōrŭm;īssĭmīs
+
+modele:uetus
+pere:diues
+des:85-120:1:rĭmŭs;rĭmĕ;rĭmŭm;rĭmī;rĭmō;rĭmō;rĭmī;rĭmī;rĭmōs;rĭmōrŭm;rĭmīs;rĭmīs;rĭmă;rĭmă;rĭmăm;rĭmāe;rĭmāe;rĭmā;rĭmāe;rĭmāe;rĭmās;rĭmārum;rĭmīs;rĭmīs;rĭmŭm;rĭmŭm;rĭmŭm;rĭmī;rĭmō;rĭmō;rĭmă;rĭmă;rĭmă;rĭmōrŭm;rĭmīs
+
+! provisoire
+modele:pronom
+
+modele:prcum
+R:0:K
+des:18,30,42:0:-
+
+modele:is
+R:0:2,0
+des:13,15-19,21-24:0:ĭs;ĕŭm;ējŭs;ĕī;ĕō;ĕī,ĭī;ĕōs;ĕōrŭm;ĕīs,ĭīs
+des:25,27-31,33-36:0:ĕă;ĕăm;ējŭs;ĕī;ĕā;ĕāe;ĕās;ĕārŭm;ĕīs,ĭīs
+des:37,39-43,45-48:0:ĭd;ĭd;ējŭs;ĕī;ĕō;ĕă;ĕă;ĕōrŭm;ĕīs,ĭīs
+
+modele:idem
+R:0:4,0
+des:13,15-19,21-24:0:ĭdĕm;ĕŭmdĕm,ĕūndĕm;ējŭsdĕm;ĕīdĕm;ĕōdĕm;ĕīdĕm,ĭīdĕm;ĕōsdĕm;ĕōrŭmdĕm;ĕīsdem,ĭīsdem
+des:25,27-31,33-36:0:ĕădĕm;ĕămdĕm,ĕāndĕm;ējŭsdĕm;ĕīdĕm;ĕādĕm;ĕāedĕm;ĕāsdĕm;ĕārŭmdĕm;ĕīsdem,ĭīsdem
+des:37,39-43,45-48:0:ĭdĕm;ĭdĕm;ējŭsdĕm;ĕīdĕm;ĕōdĕm;ĕădĕm;ĕădĕm;ĕōrŭmdĕm;ĕīsdem,ĭīsdem
+
+modele:hic
+pere:doctus
+abs:14,20,26,32,38,44,49-120
+des:13,15-18:0:īc;ūnc;ūjŭs;ŭic;ōc
+des:25,27-30:0:āec;ānc;ūjŭs;ŭic;āc
+des:37,39-42:0:ōc;ōc;ūjŭs;ŭic;ōc
+des:43,45:0:āec
+suf:13,25:ĕ
+suf:16,21,23,24,28,33,35,36,40,47,48:cĕ
+suf:13,18,25,37,39,42,43,45:ĭnĕ
+suf:25,43,45:cĭnĕ
+
+modele:ille
+pere:unus
+R:0:1,0
+des:13,37,39:0,:ĕ;ŭd
+des+:15,18,21,25,27,42:1:ūnc;ōc;ōscĭnĕ;āec;ānc;ōc
+abs:14,20,26,32,38,44
+
+modele:qui
+R:1:3,0
+abs:14,20,26,32,38,44
+des:13,15-19,21-24:1:quī;quĕm;cūjŭs,quōjŭs;cūī,quŏī;quō;quī;quōs;quōrŭm;quĭbŭs
+des:25,27-31,33-36:1:quāe;quăm;cūjŭs,quōjŭs;cūī,quŏī;quā;quāe;quās;quārŭm;quĭbŭs
+des:37,39-43,45-48:1:quŏd;quŏd;cūjŭs,quōjŭs;cūī,quŏī;quō;quāe;quāe;quōrŭm;quĭbŭs
+
+modele:quicumque
+pere:qui
+R:1:9,0
+sufd:cūmquĕ
+sufd:cūnquĕ
+
+modele:quidam
+pere:qui
+R:1:6,0
+sufd:dăm
+
+modele:quilibet
+pere:qui
+R:1:8,0
+sufd:lĭbĕt
+
+modele:quinam
+pere:qui
+R:1:6,0
+sufd:năm
+
+modele:quiuis
+pere:qui
+R:1:6,0
+sufd:vīs
+
+modele:quis
+pere:qui
+R:1:4,0
+des:13:1:quĭs
+
+modele:siquis
+pere:quis
+des+:13:1:quī
+
+modele:quisnam
+pere:quis
+R:1:7,0
+sufd:năm
+
+modele:quispiam
+pere:quis
+R:1:8,0
+sufd:pĭăm
+
+modele:quisquam
+pere:quis
+R:1:8,0
+sufd:quăm
+
+modele:quisque
+pere:quis
+R:1:7,0
+sufd:quĕ
+
+modele:quisquis
+R:1:6,0
+abs:14,20,26,32,38,44
+des:13,15,18:1:īsquĭs,īcquĭs;ĕmquĕm;ōquō
+des:25,30:1:āequāe;āquā
+des:37,39,42:1:īdquĭd,īcquĭd;īdquĭd,īcquĭd;ōquō
+
+modele:ego
+R:0:K
+R:1:3,0
+des:13,25:0:-;-
+des:15-18:1:mē;mĕī;mĭhĭ,mī;mē
+des:27-30:1:mē;mĕī;mĭhĭ,mī;mē
+suf:13,25,15,17,18,27,29,30:met
+
+modele:nos
+R:0:1,0
+des:19,21-24:0:s;s;strŭm;bīs
+des:31,33-36:0:s;s;strŭm;bīs
+suf:19,21-24,31,33-36:mĕt
+
+modele:uos
+R:1:2,0
+pere:nos
+des:22,34:1:ēstrŭm
+
+modele:se
+R:0:2,0
+des:15-18,21-24:0:$se;$se
+des:27-30,33-36:0:$se;$se
+des:39-42,45-48:0:$se;$se
+suf:15-18,21-24,27-30,33-36,39-42,45-48:mĕt
+
+modele:tu
+R:0:1,0
+des:13,15-18:0:$tu
+des:25,27-30:0:$tu
+suf:13,15,18,25,27,30:tĕ
+suf:13,26:tĕmĕt
+suf:17,29:mĕt
+
+modele:uter
+pere:pulcher
+des:16,17,28,29,40,41:1:ĭus;ī;ĭus;ī;ĭus;ī
+abs:49-119
+
+modele:uterque
+pere:uter
+R:1:5,r
+sufd:quĕ
+
+modele:nemo
+R:0:3,0
+des:13,15-18:0:ēmo;ēmĭnĕm;ūlliŭs,ēmĭnĭs;ēmĭnī;ūllō
+des:25,27-30:0:ēmo;ēmĭnĕm;ūlliŭs,ēmĭnĭs;ēmĭnī;ūllō
+des:37,39:0:ĭhĭl
+
+modele:plerique
+pere:doctus
+R:0:4
+abs:13-18,25-30,37-43,49-119
+sufd:quĕ
+
+modele:amo
+R:0:1,0
+R:1:1,āu
+R:2:1,āt
+des:121-126:0:o;ās;ăt;āmŭs;ātĭs;ānt
+des:127-132:0:ābăm;ābās;ābăt;ābāmŭs;ābātĭs;ābānt
+des:133-138:0:ābo;ābĭs;ābĭt;ābĭmŭs;ābĭtĭs;ābūnt
+des:139-144:1:ī;īstī;ĭt;ĭmŭs;īstĭs;erūnt,ērĕ
+des:145-150:1:ĕrăm;ĕrās;ĕrăt;ĕrāmŭs;ĕrātĭs;ĕrānt
+des:151-156:1:ĕro;ĕris;ĕrĭt;ĕrimŭs;ĕritĭs;ĕrīnt
+! subjonctif
+des:157-162:0:$em
+des:163-168:0:ārĕm;ārēs;ārĕt;ārēmŭs;ārētĭs;ārēnt
+des:169-174:1:ĕrĭm;ĕris;ĕrĭt;ĕrimŭs;ĕritĭs;ĕrīnt
+des:175-180:1:īssĕm;īssēs;īssĕt;īssēmŭs;īssētĭs;īssēnt
+! impératif
+des:181-186:0:ā;ātĕ;ātō;ātō;ātōtĕ;āntō
+! infinitif
+des:187:0:ārĕ
+des:188:1:īssĕ
+des:188:0:āssĕ
+! participe présent
+des:189-200:0:āns;āns;āntĕm;āntīs;āntī;āntĕ;āntēs;āntēs;āntēs;āntĭŭm,āntŭm;āntĭbŭs;āntĭbŭs
+des:201-212:0:āns;āns;āntĕm;āntīs;āntī;āntĕ;āntēs;āntēs;āntēs;āntĭŭm,āntŭm;āntĭbŭs;āntĭbŭs
+des:213-224:0:āns;āns;āns;āntīs;āntī;āntĕ;āntĭă;āntĭă;āntĭă;āntĭŭm,āntŭm;āntĭbŭs;āntĭbŭs
+! participe futur
+des:225-236:2:ūrŭs;ūrĕ;ūrŭm;ūrī;ūrō;ūrō;ūrī;ūrī;ūrōs;ūrōrŭm;ūrīs;ūrīs
+des:237-248:2:ūră;ūră;ūrăm;ūrāe;ūrāe;ūrā;ūrāe;ūrāe;ūrās;ūrārum;ūrīs;ūrīs
+des:249-260:2:ūrŭm;ūrŭm;ūrŭm;ūrī;ūrō;ūrō;ūră;ūră;ūră;ūrōrŭm;ūrīs;ūrīs
+! gérondif et supin
+des:261-264:0:āndŭm;āndī;āndō;āndō
+des:265,266:2:ŭm;ū
+! indicatif passif
+des:267-272:0:ŏr;ārĭs;ātŭr;āmŭr;āmĭnī;āntŭr
+des:273-278:0:ābăr;ābārĭs,ābārĕ;ābātŭr;ābāmŭr;ābāmĭnī;ābāntŭr
+des:279-284:0:ābŏr;ābĕrĭs,ābĕrĕ;ābĭtŭr;ābĭmŭr;ābĭmĭnī;ābūntŭr
+! subjonctif
+des:285-290:0:ĕr;ērĭs;ētŭr;ēmŭr;ēmĭnī;ēntŭr
+des:291-296:0:ārĕr;ārērĭs;ārētŭr;ārēmŭr;ārēmĭnī;ārēntŭr
+! impératif et infinitif
+des:297,298:0:ārĕ;āmĭnī
+des:299-301:0:ātŏr;ātŏr;āntŏr
+des:302:0:ārī
+! participe parfait
+!des:303-314:2:ŭs;ĕ;ŭm;ī;ō;ō;ī;ī;ōs;ōrŭm;īs;īs
+!des:315-326:2:ă;ă;ăm;āe;āe;ā;āe;āe;ās;ārum;īs;īs
+des:303-314:2:$lupus
+des:315-326:2:$uita
+des:327-338:2:$templum
+! adjectif verbal
+des:339-350:0:āndŭs;āndĕ;āndŭm;āndī;āndō;āndō;āndī;āndī;āndōs;āndōrŭm;āndīs;āndīs
+des:351-362:0:āndă;āndă;āndăm;āndāe;āndāe;āndā;āndāe;āndāe;āndās;āndārum;āndīs;āndīs
+des:363-374:0:āndŭm;āndŭm;āndŭm;āndī;āndō;āndō;āndă;āndă;āndă;āndōrŭm;āndīs;āndīs
+
+modele:moneo
+pere:amo
+R:0:2,0
+des:121-126:0:ĕo;ēs;ĕt;ēmŭs;ētĭs;ēnt
+des:127-132:0:ēbăm;ēbās;ēbăt;ēbāmŭs;ēbātĭs;ēbānt
+des:133-138:0:ēbo;ēbĭs;ēbĭt;ēbĭmŭs;ēbĭtĭs;ēbūnt
+! subjonctif
+des:157-162:0:ĕăm;ĕās;ĕăt;ĕāmŭs;ĕātĭs;ĕānt
+des:163-168:0:ērĕm;ērēs;ērĕt;ērēmŭs;ērētĭs;ērēnt
+! impératif
+des:181-186:0:ē;ētĕ;ētō;ētō;ētōtĕ;ēntō
+! infinitif
+des:187:0:ērĕ
+! participe présent
+des:189-200:0:ēns;ēns;ēntĕm;ēntīs;ēntī;ēntĕ;ēntēs;ēntēs;ēntēs;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+des:201-212:0:ēns;ēns;ēntĕm;ēntīs;ēntī;ēntĕ;ēntēs;ēntēs;ēntēs;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+des:213-224:0:ēns;ēns;ēns;ēntīs;ēntī;ēntĕ;ēntĭă;ēntĭă;ēntĭă;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+! gérondif, supin hérité de amo
+des:261-264:0:ēndŭm;ēndī;ēndō;ēndō
+! indicatif passif
+des:267-272:0:ĕŏr;ērĭs;ētŭr;ēmŭr;ēmĭnī;ēntŭr
+des:273-278:0:ēbăr;ēbārĭs,ēbārĕ;ēbātŭr;ēbāmŭr;ēbāmĭnī;ēbāntŭr
+des:279-284:0:ēbŏr;ēbĕrĭs,ēbĕrĕ;ēbĭtŭr;ēbĭmŭr;ēbĭmĭnī;ēbūntŭr
+! subjonctif
+des:285-290:0:ĕăr;ĕārĭs;ĕātŭr;ĕāmŭr;ĕāmĭnī;ĕāntŭr
+des:291-296:0:ērĕr;ērērĭs;ērētŭr;ērēmŭr;ērēmĭnī;ērēntŭr
+! impératif et infinitif
+des:297,298:0:ērĕ;ēmĭnī
+des:299-301:0:ētŏr;ētŏr;ēntŏr
+des:302:0:ērī
+! adjectif verbal
+des:339-350:0:ēndŭs;ēndĕ;ēndŭm;ēndī;ēndō;ēndō;ēndī;ēndī;ēndōs;ēndōrŭm;ēndīs;ēndīs
+des:351-362:0:ēndă;ēndă;ēndăm;ēndāe;ēndāe;ēndā;ēndāe;ēndāe;ēndās;ēndārum;ēndīs;ēndīs
+des:363-374:0:ēndŭm;ēndŭm;ēndŭm;ēndī;ēndō;ēndō;ēndă;ēndă;ēndă;ēndōrŭm;ēndīs;ēndīs
+
+modele:lego
+pere:moneo
+R:0:1,0
+des:121-126:0:o;ĭs;ĭt;ĭmŭs;ĭtĭs;ūnt
+des:133-138:0:ăm;ēs;ĕt;ēmus;ētis;ēnt
+! subjonctif
+des:157-162:0:ăm;ās;ăt;āmŭs;ātĭs;ānt
+des:163-168:0:ĕrĕm;ĕrēs;ĕrĕt;ĕrēmŭs;ĕrētĭs;ĕrēnt
+! impératif
+des:181-186:0:ĕ;ĭtĕ;ĭtō;ĭtō;ĭtōtĕ;ūntō
+! infinitif
+des:187:0:ĕrĕ
+! participe présent hérité
+! gérondif et supin hérités
+! indicatif passif
+des:267-272:0:ŏr;ĕrĭs,ĕrĕ;ĭtŭr;ĭmŭr;ĭmĭnī;ūntŭr
+des:279-284:0:ăr;ērĭs,ērĕ;ētŭr;ēmŭr;ēmĭnī;ēntŭr
+! subjonctif
+des:285-290:0:ăr;ārĭs;ātŭr;āmŭr;āmĭnī;āntŭr
+des:291-296:0:ĕrĕr;ĕrērĭs;ĕrētŭr;ĕrēmŭr;ĕrēmĭnī;ĕrēntŭr
+! impératif et infinitif
+des:297,298:0:ĕrĕ;ĭmĭnī
+des:299-301:0:ĭtŏr;ĭtŏr;ūntŏr
+des:302:0:ī
+! adjectif verbal hérité
+
+modele:fero
+pere:lego
+R:3:3,ērr
+R:4:1,0
+des:122,123:0:s;t
+! impératif
+des:181,269:4:-;tŭr
+! infinitif
+des:187:3:ĕ
+des:302:3:ī
+! subj impf et pqp
+des:163-168:3:$em
+des:291-296:3:ĕr;ērĭs;ētŭr;ēmŭr;ēmĭnī;ēntŭr
+
+modele:aio
+pere:lego
+R:0:2,ĭ
+R:3:1,0
+des:121,126:3:o;ūnt
+des:122-125:0:s;t;mus;tis
+des:127-132:0:ēbăm;ēbās;ēbăt;ēbāmŭs;ēbātĭs;ēbānt
+des+:127-132:0:băm;bās;băt;bāmŭs;bātĭs;bānt
+
+modele:uolo
+pere:lego
+R:5:3,0
+R:6:3,ĕl
+des:122-125:5:īs;ūlt,ōlt;ŏlŭmŭs;ūltĭs
+des:157-162:6:$im
+des:163-168:6:lĕm;lēs;lĕt;lēmŭs;lētĭs;lēnt
+des:187:6:lĕ
+abs:267-374
+
+modele:capio
+pere:lego
+R:3:2,0
+!indicatif
+des:121-126:3:ĭo;ĭs;ĭt;ĭmŭs;ĭtĭs;ĭūnt
+! subjonctif
+des:163-168:3:ĕrĕm;ĕrēs;ĕrĕt;ĕrēmŭs;ĕrētĭs;ĕrēnt
+! impératif
+des:181-186:3:ĕ;ĭtĕ;ĭtō;ĭtō;ĭtōtĕ;ūntō
+! infinitif
+des:187:3:ĕrĕ
+! indicatif passif
+des:268-271:3:ĕrĭs,ĕrĕ;ĭtur;ĭmur;ĭmini
+! subjonctif
+des:291-296:3:ĕrĕr;ĕrērĭs;ĕrētŭr;ĕrēmŭr;ĕrēmĭnī;ĕrēntŭr
+! impératif et infinitif passifs
+des:297,298:3:ĕrĕ;ĭmĭnī
+des:299,300:3:ĭtŏr;ĭtŏr
+des:302:3:ī
+! adjectif verbal hérité
+
+modele:audio
+pere:capio
+! subjonctif
+des:163-168:3:īrĕm;īrēs;īrĕt;īrēmŭs;īrētĭs;īrēnt
+! impératif
+des:181-186:3:ī;ītĕ;ītō;ītō;ītōtĕ;ūntō
+! infinitif
+des:187:3:īrĕ
+! indicatif passif
+des:268-271:3:īrĭs,īrĕ;ītur;īmur;īmini
+! subjonctif
+des:291-296:3:īrĕr;īrērĭs;īrētŭr;īrēmŭr;īrēmĭnī;īrēntŭr
+! impératif et infinitif
+des:297,298:3:īrĕ;īmĭnī
+des:299,300:3:ītŏr;ītŏr;ĭūntŏr
+des:302:3:īrī
+
+modele:fio
+pere:audio
+des:297:3:ĭĕrī
+des:163-168:3:ĭĕrĕm;ĭĕrēs;ĭĕrĕt;ĭĕrēmŭs;ĭĕrētĭs;ĭĕrēnt
+
+modele:sum
+pere:lego
+R:0:1,0
+R:4:3,0
+R:5:3,ĕr
+R:6:2,0
+R:7:3,ēss
+abs:189-374
+! indicatif
+des:121,124,126:0:m;mŭs;nt
+des:122,123,125:4:ĕs;ēst;ēstĭs
+des:127-132:5:ăm;ās;ăt;āmŭs;ātĭs;ānt
+des:133-138:5:o;ĭs;ĭt;ĭmŭs;ĭtĭs;ūnt
+! subjonctif
+des:157-162:6:$im
+des:163-168:7:$em
+des:166-168,171:4:fŏrĕm;fŏrēs;fŏrĕt;fŏrēnt
+! impératif
+des:181-186:4:ĕs;ēstĕ;ēstō;ēstō;ēstōtĕ;sūntō
+! infinitif
+des:187:7:ĕ
+des:416:4:fŏrĕ
+
+modele:possum
+pere:sum
+R:4:4,t
+R:5:4,tĕr
+R:7:2,0
+
+modele:prosum
+pere:sum
+R:4:3,d
+R:5:3,dĕr
+R:7:3,dēss
+
+modele:imitor
+R:0:2,0
+R:2:2,āt
+des:121-126:0:ŏr;ārĭs;ātŭr;āmŭr;āmĭnī;āntŭr
+des:127-132:0:ābăr;ābārĭs,ābārĕ;ābātŭr;ābāmŭr;ābāmĭnī;ābāntŭr
+des:133-138:0:ābŏr;ābĕrĭs,ābĕrĕ;ābĭtŭr;ābĭmŭr;ābĭmĭnī;ābūntŭr
+! subjonctif
+des:157-162:0:ĕr;ērĭs;ētŭr;ēmŭr;ēmĭnī;ēntŭr
+des:163-168:0:ārĕr;ārērĭs;ārētŭr;ārēmŭr;ārēmĭnī;ārēntŭr
+! impératif
+des:181-186:0:ārĕ;āmĭnī
+des:299-301:0:ātŏr;ātŏr;āntŏr
+! infinitif
+des:187:0:ārī
+! participe présent
+des:189-200:0:āns;āns;āntĕm;āntīs;āntī;āntĕ;āntēs;āntēs;āntēs;āntĭŭm,āntŭm;āntĭbŭs;āntĭbŭs
+des:201-212:0:āns;āns;āntĕm;āntīs;āntī;āntĕ;āntēs;āntēs;āntēs;āntĭŭm,āntŭm;āntĭbŭs;āntĭbŭs
+des:213-224:0:āns;āns;āns;āntīs;āntī;āntĕ;āntĭă;āntĭă;āntĭă;āntĭŭm,āntŭm;āntĭbŭs;āntĭbŭs
+! participe futur
+des:225-236:2:ūrŭs;ūrĕ;ūrŭm;ūrī;ūrō;ūrō;ūrī;ūrī;ūrōs;ūrōrŭm;ūrīs;ūrīs
+des:237-248:2:ūră;ūră;ūrăm;ūrāe;ūrāe;ūrā;ūrāe;ūrāe;ūrās;ūrārum;ūrīs;ūrīs
+des:249-260:2:ūrŭm;ūrŭm;ūrŭm;ūrī;ūrō;ūrō;ūră;ūră;ūră;ūrōrŭm;ūrīs;ūrīs
+! gérondif et supin
+des:261-264:0:āndŭm;āndī;āndō;āndō
+des:265,266:2:ŭm;ū
+! participe parfait
+des:375-386:2:ŭs;ĕ;ŭm;ī;ō;ō;ī;ī;ōs;ōrŭm;īs;īs
+des:387-398:2:ă;ă;ăm;āe;āe;ā;āe;āe;ās;ārum;īs;īs
+des:399-410:2:ŭm;ŭm;ŭm;ī;ō;ō;ă;ă;ă;ōrŭm;īs;īs
+
+modele:uereor
+pere:imitor
+R:0:3,0
+des:121-126:0:ĕŏr;ērĭs;ētŭr;ēmŭr;ēmĭnī;ēntŭr
+des:127-132:0:ēbăr;ēbārĭs,ēbārĕ;ēbātŭr;ēbāmŭr;ēbāmĭnī;ēbāntŭr
+des:133-138:0:ēbŏr;ēbĕrĭs,ēbĕrĕ;ēbĭtŭr;ēbĭmŭr;ēbĭmĭnī;ēbūntŭr
+! subjonctif
+des:157-162:0:ĕăr;ĕārĭs;ĕātŭr;ĕāmŭr;ĕāmĭnī;ĕāntŭr
+des:163-168:0:ērĕr;ērērĭs;ērētŭr;ērēmŭr;ērēmĭnī;ērēntŭr
+! impératif
+des:181-186:0:ērĕ;ēmĭnī
+des:299-301:0:ētŏr;ētŏr;ēntŏr
+! infinitif
+des:187:0:ērī
+! participe présent
+des:189-200:0:ēns;ēns;ēntĕm;ēntīs;ēntī;ēntĕ;ēntēs;ēntēs;ēntēs;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+des:201-212:0:ēns;ēns;ēntĕm;ēntīs;ēntī;ēntĕ;ēntēs;ēntēs;ēntēs;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+des:213-224:0:ēns;ēns;ēns;ēntīs;ēntī;ēntĕ;ēntĭă;ēntĭă;ēntĭă;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+! gérondif et supin
+des:261-264:0:ēndŭm;ēndī;ēndō;ēndō
+
+modele:sequor
+pere:uereor
+R:0:2,0
+des:121-126:0:ŏr;ĕrĭs,ĕrĕ;ĭtŭr;ĭmŭr;ĭmĭnī;ūntŭr
+des:133-138:0:ăr;ērĭs,ērĕ;ētŭr;ēmŭr;ēmĭnī;ēntŭr
+! subjonctif
+des:157-162:0:ăr;ārĭs,ārĕ;ātŭr;āmŭr;āmĭnī;āntŭr
+des:163-168:0:ĕrĕr;ĕrērĭs;ĕrētŭr;ĕrēmŭr;ĕrēmĭnī;ĕrēntŭr
+! impératif
+des:181-186:0:ĕrĕ;ĭmĭnī
+des:299-301:0:ĭtŏr;ĭtŏr;ūntŏr
+! infinitif
+des:187:0:ī
+! participe présent
+des:189-200:0:ēns;ēns;ēntĕm;ēntīs;ēntī;ēntĕ;ēntēs;ēntēs;ēntēs;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+des:201-212:0:ēns;ēns;ēntĕm;ēntīs;ēntī;ēntĕ;ēntēs;ēntēs;ēntēs;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+des:213-224:0:ēns;ēns;ēns;ēntīs;ēntī;ēntĕ;ēntĭă;ēntĭă;ēntĭă;ēntĭŭm;ēntĭbŭs;ēntĭbŭs
+! gérondif et supin
+des:261-264:0:ēndŭm;ēndī;ēndō;ēndō
+
+modele:patior
+pere:sequor
+R:3:3,0
+des:122-125:3:ĕrĭs,ĕrĕ;ĭtur;ĭmur;ĭmini
+des:133-138:3:ĭăr;ĭērĭs,ĭērĕ;ĭētŭr;ĭēmŭr;ĭēmĭnī;ĭēntŭr
+! subjonctif
+des:163-168:3:ĕrĕr;ĕrērĭs;ĕrētŭr;ĕrēmŭr;ĕrēmĭnī;ĕrēntŭr
+! impératif
+des:181-186:3:ĕrĕ;ĭmĭnī
+des:299-301:3:ĭtŏr;ĭtŏr;ūntŏr
+! infinitif
+des:187:3:ī
+! participe présent
+des:189-200:0:ēns;ēns;ēntĕm;ēntīs;ēntī;ēntĕ;ēntēs;ēntēs;ēntēs;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+des:201-212:0:ēns;ēns;ēntĕm;ēntīs;ēntī;ēntĕ;ēntēs;ēntēs;ēntēs;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+des:213-224:0:ēns;ēns;ēns;ēntīs;ēntī;ēntĕ;ēntĭă;ēntĭă;ēntĭă;ēntĭŭm,ēntŭm;ēntĭbŭs;ēntĭbŭs
+! gérondif et supin
+des:261-264:0:ēndŭm;ēndī;ēndō;ēndō
+
+modele:potior
+pere:patior
+des:122-125:3:īrĭs,īrĕ;ītur;īmur;īmini
+! subjonctif
+des:163-168:3:īrĕr;īrērĭs;īrētŭr;īrēmŭr;īrēmĭnī;īrēntŭr
+! impératif
+des:181-186:3:īrĕ;īmĭnī
+des:299-301:3:ītŏr;ītŏr;ĭūntŏr
+! infinitif
+des:187:3:īrī
+! gérondif et supin
+des:261-264:0:ēndŭm;ēndī;ēndō;ēndō
+
+modele:eo
+pere:audio
+R:4:2,ī
+R:5:2,ĕū
+des:121,126:3:ēo;ĕūnt
+des:127-132:4:băm;bās;băt;bāmŭs;bātĭs;bānt
+des:133-138:4:bo;bĭs;bĭt;bĭmŭs;bĭtĭs;būnt
+! impératif
+des:186:3:ĕūntō
+! part. prés.
+des:189,190,201,202,213-215:3:ĭēns
+des:191-200:5:ntĕm;ntīs;ntī;ntĕ;ntēs;ntēs;ntēs;ntĭŭm;ntĭbŭs
+des:203-212:5:ntĕm;ntīs;ntī;ntĕ;ntēs;ntēs;ntēs;ntĭŭm,nt;ntĭbŭs
+des:216-224:5:ntīs;ntī;ntĕ;ntĭă;ntĭă;ntĭă;ntĭŭm;ntĭbŭs
+! pas de passif
+abs:267-410
+
+modele:adv
+R:0:K
+des:414:0:-
+
+modele:adve
+R:0:1,0
+des:411,412,414:0:ĭŭs;īssĭmĕ;ē
+
+modele:advr
+R:0:2,0
+des:411,412,414:0:ĭŭs;īssĭmĕ;ĕr
+

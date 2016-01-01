@@ -1,0 +1,33 @@
+------------  COLLATINUS 11 -------------
+
+À FAIRE :
+- Enregistrer, enregistrer sous, ou dispositif de copier/coller
+- nettoyage des -pte -met -quoi dans les traductions
+- téléchargement des màj des lexiques et dictionnaires ?
+  Ou bien chargement des mêmes, compressés, prêts à être décompressés
+  et installés par Collatinus.
+- Modèles :
+	vérifier les modèles (multus a un comparatif sing, et le pl. est faux)
+	traiter les noms 3ème decl pl. majores, orum, donné sing.
+	modèles nolo et malo
+    vérifier facio et fio
+	construire des modèles passifs/intransitifs
+
+Un modèle d'utilisation des docks est dans les exemples Qt5 : 
+/home/collatin/doc/qt/qt5/examples/widgets/mainwindows/dockwidgets
+
+Pour l'enregistrement : save, maybesave, saveas,
+/home/collatin/doc/qt/qt5/examples/widgets/richtext/textedit/textedit.cpp
+
+besoins en enregistrement :
+- lemmatisation : 
+   . lemmatisation ;
+      précaution : si lemmatisation n'est pas vide
+                   - et (qu'il n'a pas encore été enregistré
+                   -     ou qu'il a été modifié depuis le dernier enregistrement).
+   . texte+lemmatisation ;
+                   - idem, plus texte
+   . scansion
+                   - si la scansion n'est pas vide ;
+                   - et (qu'elle n'a pas encore été enregistrée,
+                   -     ou modifiée depuis le dernier enregistrement).
