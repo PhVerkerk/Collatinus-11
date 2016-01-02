@@ -1,4 +1,5 @@
 ------------  COLLATINUS 11 -------------
+vendredi 01 janvier 2016 
 
 À FAIRE :
 - Enregistrer, enregistrer sous, ou dispositif de copier/coller
@@ -16,10 +17,18 @@
 Un modèle d'utilisation des docks est dans les exemples Qt5 : 
 /home/collatin/doc/qt/qt5/examples/widgets/mainwindows/dockwidgets
 
-Pour l'enregistrement : save, maybesave, saveas,
-/home/collatin/doc/qt/qt5/examples/widgets/richtext/textedit/textedit.cpp
+L'enregistrement dans un fichier est abandonné au profit du copier-coller.
+Un dialogue permet de sélectionner ce qui sera collé :
 
-besoins en enregistrement :
+----------------------
+[ ] Texte latin
+[ ] Lemmatisation
+[ ] dictionnaire
+[ ] scansion
+----------------------
+       Copier  Fermer
+----------------------
+
 - lemmatisation : 
    . lemmatisation ;
       précaution : si lemmatisation n'est pas vide
