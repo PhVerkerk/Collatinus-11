@@ -2,9 +2,9 @@
 vendredi 01 janvier 2016 
 
 À FAIRE :
-- Enregistrer, enregistrer sous, ou dispositif de copier/coller
-- nettoyage des -pte -met -quoi dans les traductions
-- téléchargement des màj des lexiques et dictionnaires ?
+- Dispositif de copier/coller
+- Nettoyage des -pte -met -quoi dans les traductions
+- Téléchargement des màj des lexiques et dictionnaires ?
   Ou bien chargement des mêmes, compressés, prêts à être décompressés
   et installés par Collatinus.
 - Modèles :
@@ -15,7 +15,7 @@ vendredi 01 janvier 2016
 	construire des modèles passifs/intransitifs
 
 Un modèle d'utilisation des docks est dans les exemples Qt5 : 
-/home/collatin/doc/qt/qt5/examples/widgets/mainwindows/dockwidgets
+${Doc-qt5}/examples/widgets/mainwindows/dockwidgets
 
 L'enregistrement dans un fichier est abandonné au profit du copier-coller.
 Un dialogue permet de sélectionner ce qui sera collé :
@@ -40,3 +40,4 @@ Un dialogue permet de sélectionner ce qui sera collé :
                    - si la scansion n'est pas vide ;
                    - et (qu'elle n'a pas encore été enregistrée,
                    -     ou modifiée depuis le dernier enregistrement).
+
