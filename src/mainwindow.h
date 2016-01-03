@@ -56,6 +56,10 @@ public:
 	QLineEdit        *lineEditDic;
 	QLineEdit        *lineEditDicW;
 	QLineEdit        *lineEditFlex;
+	// cases à cocher pour la copie
+	QCheckBox *cbTexteLatin;
+	QCheckBox *cbLemmatisation;
+	QCheckBox *cbScansion;
 	// contrôle des options
 	QCheckBox        *cbAlpha;
 	QCheckBox        *cbHtml;
@@ -84,6 +88,8 @@ private slots:
 	void clicPost();
 	void clicPostW();
 	void closeEvent(QCloseEvent *event);
+	void copie();
+	void dialogueCopie();
 	void effaceRes();
 	void exportPdf();
 	void flechisLigne();
@@ -137,6 +143,7 @@ private:
 	// actions et groupes d'actions
 	QAction      *aproposAct;
 	QAction      *balaiAct;
+	QAction      *copieAct;
 	QAction      *deZoomAct;
 	QAction      *dicAct;
 	QAction      *dicActW;
@@ -152,9 +159,6 @@ private:
 	QAction      *printAct;
 	QAction      *quitAct;
 	QAction      *reFindAct;
-	QAction      *sauvLAct;
-	QAction      *sauvSAct;
-	QAction      *sauvSousAct;
 	QAction      *statAct;
 	QAction      *syncDWAct;
 	QAction      *syncWDAct;
