@@ -6,6 +6,7 @@
 #include <QMultiMap>
 #include <QString>
 #include <QStringList>
+#include <QtCore>
 
 class Lemmat;
 class Modele;
