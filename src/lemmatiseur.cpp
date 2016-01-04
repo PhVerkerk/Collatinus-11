@@ -1,4 +1,25 @@
-/** 
+/*                 lemmatiseur.cpp
+ * 
+ *  This file is part of COLLATINUS.
+ *                                                                            
+ *  COLLATINUS is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *                                                                            
+ *  COLLATINVS is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *                                                                            
+ *  You should have received a copy of the GNU General Public License
+ *  along with COLLATINUS; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * © Yves Ouvrard, 2009 - 2016    
+ */
+
+/**
  * \file lemmatiseur.cpp
  * \brief module de lemmatisation des formes latines 
  */
@@ -301,7 +322,11 @@ MapLem Lemmat::lemmatise (QString f)
 	foreach (Irreg* irr, lirr)
 	{
 		foreach (int m, irr->morphos())
-		result[irr->lemme()].prepend (morpho (m));	
+		{
+		   	SLem sl = {irr->grq(),morpho(m)};
+			//result[irr->lemme()].prepend (morpho (m));	
+			result[irr->lemme()].prepend (sl);	
+		}
 	}
 	// radical + désinence
 	for (int i=0;i<=f.length();++i)
@@ -321,7 +346,12 @@ MapLem Lemmat::lemmatise (QString f)
 			QString nf = r+'i'+d;
 			MapLem nm = lemmatise (nf);
 			foreach (Lemme *nl, nm.keys())
-				result.insert (nl, nm.value (nl));
+			{
+				QList<SLem> lsl = nm.value(nl);
+				for (int i=0;i<lsl.count();++i)
+					lsl[i].grq.remove(r.length()-1,1);
+				result.insert (nl, lsl);
+			}
 		}
 		QList<Desinence*> ldes = _desinences.values (d);
 		if (ldes.empty())
@@ -336,9 +366,15 @@ MapLem Lemmat::lemmatise (QString f)
 					&& !l->estIrregExcl (des->numRad ()))
 				{
 					if (des->morphoNum() < _morphos.count()-1)
-						result[l].prepend (rad->grq()+des->grq()+" "
-								   	   	   +morpho (des->morphoNum()));
-					else result[l].prepend ("-");
+					{
+						SLem sl = {rad->grq()+des->grq(),morpho (des->morphoNum())};
+						result[l].prepend(sl);
+					}
+					else 
+					{
+						SLem sl = {"-",""};
+						result[l].prepend(sl);
+					}
 				}
 			}
 		}
@@ -353,7 +389,7 @@ MapLem Lemmat::lemmatise (QString f)
  */
 bool Lemmat::inv (Lemme *l, const MapLem ml)
 {
-	return ml.value(l).at(0) == "-";
+	return ml.value(l).at(0).grq == "-";
 }
 
 /**
@@ -498,8 +534,8 @@ QString Lemmat::lemmatiseT (QString t,
                     if (cumMorpho && !inv(l, map))
                     {
                         lin.append("<ul>");
-                        foreach (QString m, map.value(l))
-                            lin.append ("<li>"+m+"</li>");
+                        foreach (SLem m, map.value(l))
+                            lin.append ("<li>"+m.grq+" "+m.morpho+"</li>");
                         lin.append("</ul>");
                     }
                 }
@@ -513,8 +549,8 @@ QString Lemmat::lemmatiseT (QString t,
                     lin.append ("  - "+l->humain(false, _cible)+"\n");
                     if (cumMorpho && !inv(l, map))
                     {
-                        foreach (QString m, map.value(l))
-                            lin.append ("    . "+m+"\n");
+                        foreach (SLem m, map.value(l))
+                            lin.append ("    . "+m.grq+" "+m.morpho+"\n");
                     }
                 }
             }
@@ -531,12 +567,12 @@ QString Lemmat::lemmatiseT (QString t,
                     if (_html) 
                     {
                         fl<<"<ul>";
-                        foreach (QString m, map.value(l))
-                            fl<<"<li>"<<m<<"</li>";
+                        foreach (SLem m, map.value(l))
+                            fl<<"<li>"<<m.grq<<" "<<m.morpho<<"</li>";
                         fl<<"</ul>";
                     }
-                    else foreach (QString m, map.value(l))
-                        fl<< "\n    . "<<m;
+                    else foreach (SLem m, map.value(l))
+                        fl<< "\n    . "<<m.grq<<" "<<m.morpho;
                 }
                 lsv.append (lin);
             }

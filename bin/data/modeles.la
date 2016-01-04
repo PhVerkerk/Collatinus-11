@@ -253,6 +253,11 @@ des:16,28,40:0:ĭŭs;ĭŭs;ĭŭs
 des:17,29,41:0:ī;ī;ī
 abs:49-119
 
+modele:multus
+pere:doctus
+abs:49-54,61-66,73-78
+des:55-60,67-72,79-84:1:ēs;ēs;ēs;ĭŭm;ĭbŭs;ĭbŭs;ēs;ēs;ēs;ĭŭm;ĭbŭs;ĭbŭs;ă;ă;ă;ĭŭm;ĭbŭs
+
 modele:alter
 pere:unus
 R:0:0,0

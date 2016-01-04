@@ -16,28 +16,3 @@ vendredi 01 janvier 2016
 
 Un modèle d'utilisation des docks est dans les exemples Qt5 : 
 ${Doc-qt5}/examples/widgets/mainwindows/dockwidgets
-
-L'enregistrement dans un fichier est abandonné au profit du copier-coller.
-Un dialogue permet de sélectionner ce qui sera collé :
-
-----------------------
-[ ] Texte latin
-[ ] Lemmatisation
-[ ] dictionnaire
-[ ] scansion
-----------------------
-       Copier  Fermer
-----------------------
-
-- lemmatisation : 
-   . lemmatisation ;
-      précaution : si lemmatisation n'est pas vide
-                   - et (qu'il n'a pas encore été enregistré
-                   -     ou qu'il a été modifié depuis le dernier enregistrement).
-   . texte+lemmatisation ;
-                   - idem, plus texte
-   . scansion
-                   - si la scansion n'est pas vide ;
-                   - et (qu'elle n'a pas encore été enregistrée,
-                   -     ou modifiée depuis le dernier enregistrement).
-

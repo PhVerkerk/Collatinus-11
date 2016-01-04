@@ -9,10 +9,9 @@
 	<file>res/dicolitt.svg</file>
 	<file>res/document-new.svg</file>
 	<file>res/document-open.svg</file>
-	<file>res/document-save-as.svg</file>
-	<file>res/document-save.svg</file>
 	<file>res/edit-alpha.svg</file>
 	<file>res/edit-clear.svg</file>
+	<file>res/copie.svg</file>
 	<file>res/edit-find.svg</file>
 	<file>res/flechir.svg</file>
 	<file>res/gear.svg</file>
