@@ -1,3 +1,24 @@
+/*            mainwindow.h
+ *
+ *  This file is part of COLLATINUS.
+ *                                                                            
+ *  COLLATINUS is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *                                                                            
+ *  COLLATINVS is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *                                                                            
+ *  You should have received a copy of the GNU General Public License
+ *  along with COLLATINUS; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * © Yves Ouvrard, 2009 - 2016    
+ */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H 
 #include <QMainWindow>
@@ -56,6 +77,10 @@ public:
 	QLineEdit        *lineEditDic;
 	QLineEdit        *lineEditDicW;
 	QLineEdit        *lineEditFlex;
+	// cases à cocher pour la copie
+	QCheckBox *cbTexteLatin;
+	QCheckBox *cbLemmatisation;
+	QCheckBox *cbScansion;
 	// contrôle des options
 	QCheckBox        *cbAlpha;
 	QCheckBox        *cbHtml;
@@ -84,6 +109,8 @@ private slots:
 	void clicPost();
 	void clicPostW();
 	void closeEvent(QCloseEvent *event);
+	void copie();
+	void dialogueCopie();
 	void effaceRes();
 	void exportPdf();
 	void flechisLigne();
@@ -137,6 +164,7 @@ private:
 	// actions et groupes d'actions
 	QAction      *aproposAct;
 	QAction      *balaiAct;
+	QAction      *copieAct;
 	QAction      *deZoomAct;
 	QAction      *dicAct;
 	QAction      *dicActW;
@@ -152,9 +180,6 @@ private:
 	QAction      *printAct;
 	QAction      *quitAct;
 	QAction      *reFindAct;
-	QAction      *sauvLAct;
-	QAction      *sauvSAct;
-	QAction      *sauvSousAct;
 	QAction      *statAct;
 	QAction      *syncDWAct;
 	QAction      *syncWDAct;

@@ -7262,11 +7262,11 @@ plures:plus de, plus nombreux
 plurifariam:en différents endroits
 plurimum:beaucoup (au superlatif), très souvent
 plurimus:svt. au pl., le plus nombreux, le plus grand, fréquent
-pluris:pl. plus de, plus nombreux
+!pluris:pl. plus de, plus nombreux
 plusculum:un peu plus, un peu plus de
 plusculus:qui est en quantité un peu plus grande, plus de
-plus2:plus, davantage
 plus:plus, plus cher
+plus2:plus, davantage
 Plutarchus:Plutarque
 Plutonius:de Pluton
 Pluton:Pluton

@@ -1,4 +1,23 @@
-/*      flexion.cpp     */
+/*      flexion.cpp   
+ * 
+ *  This file is part of COLLATINUS.
+ *                                                                            
+ *  COLLATINUS is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *                                                                            
+ *  COLLATINVS is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *                                                                            
+ *  You should have received a copy of the GNU General Public License
+ *  along with COLLATINUS; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * © Yves Ouvrard, 2009 - 2016    
+ */
 
 #include <QList>
 #include <QRegExp>
@@ -47,15 +66,22 @@ QString Flexion::forme (int n, bool label)
 	if (ld.empty()) return "-";
 	QStringList lres;
 	if (label) lres.append (_lemmatiseur->morpho (n));
-	foreach (Desinence *d, ld)
+	bool excl = false;
+	QString firr = _lemme->irreg (n, &excl);
+	if (!firr.isEmpty())
+		lres.append (firr);
+	if (!excl)
 	{
-		QString grqd = d->grq();
-		int nr = d->numRad ();
-		QList<Radical*> lr = _lemme->radical (nr);
-		foreach (Radical *r, lr)
+		foreach (Desinence *d, ld)
 		{
-			QString grqr = r->grq ();
-			lres.append (grqr + grqd);
+			QString grqd = d->grq();
+			int nr = d->numRad ();
+			QList<Radical*> lr = _lemme->radical (nr);
+			foreach (Radical *r, lr)
+			{
+				QString grqr = r->grq ();
+				lres.append (grqr + grqd);
+			}
 		}
 	}
 	lres.removeDuplicates();

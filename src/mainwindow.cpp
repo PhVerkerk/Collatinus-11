@@ -1,4 +1,23 @@
-/*   mainwindow.cpp   */
+/*   mainwindow.cpp
+ *
+ *  This file is part of COLLATINUS.
+ *                                                                            
+ *  COLLATINUS is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *                                                                            
+ *  COLLATINVS is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *                                                                            
+ *  You should have received a copy of the GNU General Public License
+ *  along with COLLATINUS; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * © Yves Ouvrard, 2009 - 2016    
+ */
 
 #include <QDebug>
 #include <QPrinter>
@@ -553,6 +572,20 @@ void MainWindow::closeEvent(QCloseEvent *event)
     QMainWindow::closeEvent(event);
 }
 
+void MainWindow::copie()
+{
+	QClipboard *clipboard = QApplication::clipboard();
+	clipboard->clear();
+	
+	QString texte;
+	if (cbTexteLatin->isChecked()) texte.append(editLatin->toPlainText());
+	if (cbLemmatisation->isChecked()) texte.append(textEditLem->toHtml());
+	if (cbScansion->isChecked()) texte.append(textEditScand->toHtml());
+	QMimeData *mime = new QMimeData;
+	mime->setHtml(texte);
+	clipboard->setMimeData(mime);
+}
+
 /**
  * \fn void MainWindow::createActions()
  * \brief Fonction appelée par le créateur. Initialise
@@ -571,6 +604,7 @@ void MainWindow::createActions()
 	alphaAct = new QAction(QIcon(":res/edit-alpha.svg"), tr("Lancer et classer &alphabétiquement"), this);
     aproposAct = new QAction(QIcon(":/res/collatinus.svg"), tr("à &Propos"), this);
 	balaiAct = new QAction(QIcon(":res/edit-clear.svg"), tr("&Effacer les résultats"), this);
+	copieAct = new QAction(QIcon(":res/copie.svg"), tr("&Copier dans un traitement de textes"), this);
 	deZoomAct = new QAction(QIcon(":res/dezoom.svg"), tr("Plus petit"), this);
 	findAct = new QAction(QIcon(":res/edit-find.svg"), tr("&Chercher"), this);
 	flexAct = new QAction(QIcon(":res/flechir.svg"), tr("&Fléchir"), this);
@@ -583,9 +617,6 @@ void MainWindow::createActions()
     quitAct = new QAction(QIcon(":/res/power.svg"), tr("&Quitter"), this);
     quitAct->setStatusTip(tr("Quitter l'application"));
 	reFindAct = new QAction(tr("Chercher &encore"), this);
-	sauvLAct = new QAction(QIcon(":res/document-save.svg"), tr("Enregi&strer la lemmatisation"), this);
-	sauvSAct = new QAction(QIcon(":res/document-save.svg"), tr("Enregi&strer la scansion"), this);
-	sauvSousAct = new QAction(QIcon(":res/document-save-as.svg"), tr("s&auver sous"), this);
 	statAct = new QAction(QIcon(":res/abacus.svg"), tr("S&tatistiques"), this);
 	zoomAct = new QAction(QIcon(":res/zoom.svg"), tr("Plus gros"), this);
 
@@ -708,6 +739,7 @@ void MainWindow::createConnections()
 	connect(alphaAct, SIGNAL(triggered()), this, SLOT(alpha()));
     connect(aproposAct, SIGNAL(triggered()), this, SLOT(apropos()));
 	connect(balaiAct, SIGNAL(triggered()), this, SLOT(effaceRes()));
+	connect(copieAct, SIGNAL(triggered()), this, SLOT(dialogueCopie()));
 	connect(exportAct, SIGNAL(triggered()), this, SLOT(exportPdf()));
 	connect(findAct, SIGNAL(triggered()), this, SLOT(recherche()));
 	connect(reFindAct, SIGNAL(triggered()), this, SLOT(rechercheBis()));
@@ -752,10 +784,10 @@ void MainWindow::createMenus()
     fileMenu = menuBar()->addMenu(tr("&Fichier"));
 	fileMenu->addAction (ouvrirAct);
     fileMenu->addSeparator();
-	fileMenu->addAction(sauvLAct);
-	fileMenu->addAction(sauvSousAct);
+	fileMenu->addAction(copieAct);
 	fileMenu->addAction(exportAct);
 	fileMenu->addAction(printAct);
+    fileMenu->addSeparator();
     fileMenu->addAction(quitAct);
 
     editMenu = menuBar()->addMenu(tr("&Edition"));
@@ -799,8 +831,7 @@ void MainWindow::createToolBars()
 
 	toolBar->addAction(nouvAct);
 	toolBar->addAction(ouvrirAct);
-	toolBar->addAction(sauvLAct);
-	toolBar->addAction(sauvSousAct);
+	toolBar->addAction(copieAct);
 	toolBar->addAction(zoomAct);
 	toolBar->addAction(deZoomAct);
 	toolBar->addAction(findAct);
@@ -1004,6 +1035,61 @@ void MainWindow::createDicWindow()
     textBrowserW->setOpenExternalLinks(true);
 	vLayout->addLayout (hLayout);
 	vLayout->addWidget (textBrowserW);
+}
+
+/**
+ * \fn void MainWindow::dialogueCopie()
+ * \brief Ouvre une boite de dialogue qui permet de 
+ *        sélectionner les parties à copier, et 
+ *        les place dans le presse-papier du système
+ */
+void MainWindow::dialogueCopie()
+{
+    QLabel *icon = new QLabel;
+    icon->setPixmap(QPixmap(":/res/collatinus.ico"));
+    QLabel *text = new QLabel;
+    text->setWordWrap(true);
+    text->setText("<p>Pour récupérer et modifier votre travail, la meilleure manière est "
+				  "d'ouvrir le traitement de textes de votre choix, puis de sélectionner "
+				  "ci-dessous ce que vous voulez utiliser. Cliquez ensuite sur le bouton "
+				  "«Appliquer». Pour terminer, revenez dans votre traitement de texte, "
+				  "et copiez votre sélection avec le raccourci <b>Ctrl-P</b>, ou l'option "
+				  "de menu <b>Édition/Coller</b>.");
+
+	cbTexteLatin    = new QCheckBox (tr("Texte latin"));
+	cbLemmatisation = new QCheckBox (tr("Lemmatisation"));
+	cbScansion      = new QCheckBox (tr("Scansion"));
+
+    QPushButton *appliButton   = new QPushButton("Appliquer");
+    QPushButton *cloreButton   = new QPushButton("Fermer");
+
+    QVBoxLayout *topLayout     = new QVBoxLayout;
+    topLayout->setMargin(10);
+    topLayout->setSpacing(10);
+    topLayout->addWidget(icon);
+    topLayout->addWidget(text);
+
+    QHBoxLayout *bottomLayout = new QHBoxLayout;
+    bottomLayout->addStretch();
+    bottomLayout->addWidget(appliButton);
+    bottomLayout->addWidget(cloreButton);
+    bottomLayout->addStretch();
+
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addLayout(topLayout);
+	topLayout->addWidget(cbTexteLatin);
+	topLayout->addWidget(cbLemmatisation);
+	topLayout->addWidget(cbScansion);
+    mainLayout->addLayout(bottomLayout);
+
+	QDialog dCopie(this);
+    dCopie.setModal(true);
+    dCopie.setWindowTitle(tr("Récupérer son travail"));
+    dCopie.setLayout(mainLayout);
+
+	connect(appliButton, SIGNAL(clicked()), this, SLOT(copie()));
+    connect(cloreButton, SIGNAL(clicked()), &dCopie, SLOT(close()));
+    dCopie.exec();
 }
 
 /**

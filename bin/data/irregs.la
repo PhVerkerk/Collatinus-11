@@ -1,6 +1,7 @@
 !   irregs.la
 !
 !  format :canon:forme avec quantités:liste de morphos entre virgules
+!  Les irréguliers exclusifs sont marqués d'un *
 !
 !Aenĕădūm:Aeneades:10
 ălĭud*:alius:37-39
@@ -16,6 +17,7 @@ dīvŭm:deus:10
 dūc*:duco:181
 fāc*:facio:181
 !Pānthū*:Panthus:2
+plūrĭŭm*:plus:22,34,46
 rēquĭĕm:requies:3
 ! Thybris, lemme absent de lemmes.la
 ! forme ajoutée pour test
