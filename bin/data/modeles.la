@@ -253,11 +253,6 @@ des:16,28,40:0:ĭŭs;ĭŭs;ĭŭs
 des:17,29,41:0:ī;ī;ī
 abs:49-119
 
-modele:multus
-pere:doctus
-abs:49-54,61-66,73-78
-des:55-60,67-72,79-84:1:ēs;ēs;ēs;ĭŭm;ĭbŭs;ĭbŭs;ēs;ēs;ēs;ĭŭm;ĭbŭs;ĭbŭs;ă;ă;ă;ĭŭm;ĭbŭs
-
 modele:alter
 pere:unus
 R:0:0,0
@@ -333,6 +328,11 @@ des:18,30,42:1:ĕ;ĕ;ĕ
 des:37-39:4:-
 des:22,34,46:0:ŭm;ŭm;ŭm
 des:85-120:1:īssĭmŭs;īssĭmĕ;īssĭmŭm;īssĭmī;īssĭmō;īssĭmō;īssĭmī;īssĭmī;īssĭmōs;īssĭmōrŭm;īssĭmīs;īssĭmīs;īssĭmă;īssĭmă;īssĭmăm;īssĭmāe;īssĭmāe;īssĭmā;īssĭmāe;īssĭmāe;īssĭmās;īssĭmārum;īssĭmīs;īssĭmīs;īssĭmŭm;īssĭmŭm;īssĭmŭm;īssĭmī;īssĭmō;īssĭmō;īssĭmă;īssĭmă;īssĭmă;īssĭmōrŭm;īssĭmīs
+
+! plus: pas de degrés de signification
+modele:plus
+pere:diues
+abs:49-120
 
 modele:uetus
 pere:diues

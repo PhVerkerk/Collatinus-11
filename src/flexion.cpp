@@ -66,15 +66,22 @@ QString Flexion::forme (int n, bool label)
 	if (ld.empty()) return "-";
 	QStringList lres;
 	if (label) lres.append (_lemmatiseur->morpho (n));
-	foreach (Desinence *d, ld)
+	bool excl = false;
+	QString firr = _lemme->irreg (n, &excl);
+	if (!firr.isEmpty())
+		lres.append (firr);
+	if (!excl)
 	{
-		QString grqd = d->grq();
-		int nr = d->numRad ();
-		QList<Radical*> lr = _lemme->radical (nr);
-		foreach (Radical *r, lr)
+		foreach (Desinence *d, ld)
 		{
-			QString grqr = r->grq ();
-			lres.append (grqr + grqd);
+			QString grqd = d->grq();
+			int nr = d->numRad ();
+			QList<Radical*> lr = _lemme->radical (nr);
+			foreach (Radical *r, lr)
+			{
+				QString grqr = r->grq ();
+				lres.append (grqr + grqd);
+			}
 		}
 	}
 	lres.removeDuplicates();

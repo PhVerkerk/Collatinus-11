@@ -690,6 +690,9 @@ void Lemmat::lisIrreguliers()
 #endif
 	}
     firr.close ();
+	// ajouter les irréguliers aux lemmes
+	foreach (Irreg *ir, _irregs)
+		ir->lemme()->ajIrreg (ir);
 }
 
 /**

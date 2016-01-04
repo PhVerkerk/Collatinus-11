@@ -78,6 +78,7 @@ class Lemme: public QObject
 		QString         cle ();
 		QList<int>      clesR ();
 		bool            estIrregExcl (int nm);
+		QString         irreg (int i, bool *excl);
 		QString         gr ();
 		QString         grq ();
 		QString         grModele ();

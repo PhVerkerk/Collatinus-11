@@ -1,5 +1,9 @@
 ------------  COLLATINUS 11 -------------
-vendredi 01 janvier 2016 
+lundi 4 janvier 2016 
+
+BOGUES
+- les formes irrégulières ne sont pas prises en compte
+  dans les tableaux de flexion
 
 À FAIRE :
 - Dispositif de copier/coller
@@ -8,7 +12,7 @@ vendredi 01 janvier 2016
   Ou bien chargement des mêmes, compressés, prêts à être décompressés
   et installés par Collatinus.
 - Modèles :
-	vérifier les modèles (multus a un comparatif sing, et le pl. est faux)
+	vérifier les modèles
 	traiter les noms 3ème decl pl. majores, orum, donné sing.
 	modèles nolo et malo
     vérifier facio et fio

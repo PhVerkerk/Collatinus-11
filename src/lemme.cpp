@@ -294,6 +294,24 @@ QString Lemme::humain (bool html, QString l)
 }
 
 /**
+ * \fn QString Lemme::irreg (int i, bool *excl)
+ * \brief Renvoie la forme irrégulière de morpho i. excl devient
+ *        true si elle est exclusive, false sinon.
+ */
+QString Lemme::irreg (int i, bool *excl)
+{
+	foreach (Irreg *ir, _irregs)
+	{
+		if (ir->morphos().contains (i))
+		{
+			*excl = ir->exclusif();
+			return ir->grq();
+		}
+	}
+	return "";
+}
+
+/**
  * \fn Modele* Lemme::modele ()
  * \brief Renvoie l'objet modèle du lemme.
  */
